@@ -2,6 +2,7 @@ from random import sample
 from datetime import datetime
 import time
 
+
 def lottoarvonta():
     
     print('Pelataan siis lottoa!')
@@ -128,7 +129,7 @@ def aloitus_valikko():
                 lottoarvonta()
                 break
             elif valinta == 2:
-                print('Peli ei vielä saatavilla')
+                
                 print()
             
             elif valinta == 3:
