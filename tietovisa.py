@@ -41,3 +41,22 @@ def visa_valikko():
 
 if __name__ == '__main__':
     visa_valikko()
+
+'''
+import random
+
+helpot_kysymykset = {
+    1:['Helsinki', 'Halsinki', 'Hulsinki', 'Joku muu', 'Suomen pääkaupunki on?'],
+    2:['Tapio Rautavaara', 'Reino Helismaa', 'Georg Otz', 'Kirka', 'Kuka oli tunnettu laulava keihäänheittäjä?'],
+    3:['Soisalo', 'Heisalo', 'Koisalo', 'Seisalo', 'Mikä suomalainen näyttelijä-ohjaaja Martti on sukuaan?']
+}
+
+x = random.randint(1, len(helpot_kysymykset))
+oikea_vastaus = helpot_kysymykset[x][0]
+print(helpot_kysymykset[x][-1], helpot_kysymykset[x][0])
+
+if (oikea_vastaus):
+    print('pisteet kotiin!')
+else:
+    print('Ei tainnut olla')
+'''
