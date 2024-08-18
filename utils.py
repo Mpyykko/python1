@@ -33,9 +33,9 @@ def pelivalikko():
                 lottoarvonta()
                 break
             elif valinta == 2:
-                player_names = input("Anna pelaajanimi (pilkulla erotettuina): ").split(',')
-                game = Yatzy([name.strip() for name in player_names])
-                game.play()
+                pelaajien_nimet = input("Anna pelaajanimi (pilkulla erotettuina): ").split(',')
+                peli = Yatzy([name.strip() for name in pelaajien_nimet])
+                peli.pelaa()
                 print('Tähän yatzy')
                 print()
                 break
