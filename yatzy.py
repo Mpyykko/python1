@@ -1,162 +1,170 @@
 import random
 
-class YksNoppa:
+class Noppa:
     def __init__(self):
-        self.value = random.randint(1, 6)
+        self.arvo = random.randint(1, 6)
 
-    def heitto(self):
-        self.value = random.randint(1, 6)
-        return self.value
+    def heitä(self):
+        self.arvo = random.randint(1, 6)
+        return self.arvo
 
     def __repr__(self):
-        return str(self.value)
+        return str(self.arvo)
 
-class KaikkiNopat:
+class Nopat:
     def __init__(self, nopan_numero=5):
-        self.noppa = [YksNoppa() for _ in range(nopan_numero)]
+        self.nopat = [Noppa() for _ in range(nopan_numero)]
 
-    def roll(self, pidetyt_nopat=[]):
-        for i in range(len(self.noppa)):
-            if i not in pidetyt_nopat:
-                self.noppa[i].heitto()
-        return self.noppa
+    def heitä(self, pidetyt_numerot=[]):
+        for i in range(len(self.nopat)):
+            if i not in pidetyt_numerot:
+                self.nopat[i].heitä()
+        return self.nopat
 
-    def values(self):
-        return [yks_noppa.value for yks_noppa in self.noppa]
+    def arvot(self):
+        return [noppa.arvo for noppa in self.nopat]
 
     def __repr__(self):
-        return ' '.join(map(str, self.noppa))
+        return ' '.join(map(str, self.nopat))
 
-class TulosLista:
-    tulos_rivi = [
+class Pistelista:
+    pisterivi = [
         '1', '2', '3', '4', '5', '6',
         'kolmoset', 'neloset', 'mökki', 'pikkusuora', 'isosuora', 
         'sattuma', 'yatzy', 'pari', '2paria' 
     ]
 
     def __init__(self):
-        self.tulos = {tulos_rivi: None for tulos_rivi in self.tulos_rivi}
+        self.pisteet = {rivi: None for rivi in self.pisterivi}
 
-    def calculate_score(self, noppa, tulos_rivi):
-        values = noppa.values()
-        if tulos_rivi == '1':
-            return values.count(1)
-        elif tulos_rivi == '2':
-            return values.count(2) * 2
-        elif tulos_rivi == '3':
-            return values.count(3) * 3
-        elif tulos_rivi == '4':
-            return values.count(4) * 4
-        elif tulos_rivi == '5':
-            return values.count(5) * 5
-        elif tulos_rivi == '6':
-            return values.count(6) * 6
-        elif tulos_rivi == 'kolmoset':
+    def laske_pisteet(self, nopat, rivi):
+        arvot = nopat.arvot()
+        if rivi == '1':
+            return arvot.count(1)
+        elif rivi == '2':
+            return arvot.count(2) * 2
+        elif rivi == '3':
+            return arvot.count(3) * 3
+        elif rivi == '4':
+            return arvot.count(4) * 4
+        elif rivi == '5':
+            return arvot.count(5) * 5
+        elif rivi == '6':
+            return arvot.count(6) * 6
+        elif rivi == 'kolmoset':
             for i in range(1, 7):
-                if values.count(i) >= 3:
-                    return sum(values)
+                if arvot.count(i) >= 3:
+                    return sum(arvot)
             return 0
-        elif tulos_rivi == 'neloset':
+        elif rivi == 'neloset':
             for i in range(1, 7):
-                if values.count(i) >= 4:
-                    return sum(values)
+                if arvot.count(i) >= 4:
+                    return sum(arvot)
             return 0
-        elif tulos_rivi == 'mökki':
-            if any(values.count(i) == 3 for i in range(1, 7)) and any(values.count(i) == 2 for i in range(1, 7)):
+        elif rivi == 'mökki':
+            if any(arvot.count(i) == 3 for i in range(1, 7)) and any(arvot.count(i) == 2 for i in range(1, 7)):
                 return 25
             return 0
-        elif tulos_rivi == 'pikkusuora':
-            if len(set(values)) >= 4 and any(set(straight).issubset(set(values)) for straight in [range(1, 5), range(2, 6), range(3, 7)]):
+        elif rivi == 'pikkusuora':
+            if len(set(arvot)) >= 4 and any(set(suora).issubset(set(arvot)) for suora in [range(1, 5), range(2, 6), range(3, 7)]):
                 return 30
             return 0
-        elif tulos_rivi == 'isosuora':
-            if set(values) == set(range(1, 6)) or set(values) == set(range(2, 7)):
+        elif rivi == 'isosuora':
+            if set(arvot) == set(range(1, 6)) or set(arvot) == set(range(2, 7)):
                 return 40
             return 0
-        elif tulos_rivi == 'sattuma':
-            return sum(values)
-        elif tulos_rivi == 'yatzy':
-            if len(set(values)) == 1:
+        elif rivi == 'sattuma':
+            return sum(arvot)
+        elif rivi == 'yatzy':
+            if len(set(arvot)) == 1:
                 return 50
             return 0
-        elif tulos_rivi == '2paria':
-            return sum(values) + 10
-        elif tulos_rivi == 'pari':
+        elif rivi == '2paria':
+            return sum(arvot) + 10
+        elif rivi == 'pari':
             for i in range(1, 7):
-                if values.count(i) >= 2:
-                    return sum(values)
+                if arvot.count(i) >= 2:
+                    return sum(arvot)
             return 0
         return 0
 
-    def record_score(self, dice, category):
-        if self.tulos[category] is None:
-            self.tulos[category] = self.calculate_score(dice, category)
+    def tallenna_tulos(self, nopat, kategoria):
+        if self.pisteet[kategoria] is None:
+            self.pisteet[kategoria] = self.laske_pisteet(nopat, kategoria)
         else:
-            raise ValueError(f"'{category}' on jo tulos.")
+            raise ValueError(f"'{kategoria}' on jo tallennettu.")
 
-    def total_score(self):
-        return sum(score for score in self.tulos.values() if score is not None)
+    def kokonaispisteet(self):
+        return sum(piste for piste in self.pisteet.values() if piste is not None)
 
     def __repr__(self):
-        return str(self.tulos)
+        return str(self.pisteet)
+    
+    def näytä_pistelista(self):
+        print("Pistelista:")
+        for kategoria, piste in self.pisteet.items():
+            status = piste if piste is not None else "-"
+            print(f"{kategoria}: {status}")
+        print()
 
 class Pelaaja:
     def __init__(self, nimi):
         self.nimi = nimi
-        self.scorecard = TulosLista()
+        self.pistelista = Pistelista()
 
-    def take_turn(self):
-        dice_set = KaikkiNopat()
+    def ota_vuoro(self):
+        nopat = Nopat()
+        self.pistelista.näytä_pistelista()
         print(f"{self.nimi} heittää")
-        print(f"Eka heitto: {dice_set}")
+        print(f"Eka heitto: {nopat}")
         
-        for roll in range(2):
-            keep = input("Pidettävät nopat (välilyönnillä erotettuna esim., 0 2 4): ").split()
-            keep_indices = [int(i) for i in keep if i.isdigit()]
-            dice_set.roll(keep_indices)
-            print(f"Heitto {roll + 2}: {dice_set}")
+        for heitto in range(2):
+            pidettävät = input("Pidettävät nopat (välilyönnillä erotettuna, esim. 1 2 5): ").split()
+            pidetyt_numerot = [int(i)-1 for i in pidettävät if i.isdigit()]
+            nopat.heitä(pidetyt_numerot)
+            print(f"Heitto {heitto + 2}: {nopat}")
         
         while True:
-            category = input("Mihin tulos laitetaan: ").strip().lower()
-            if category in self.scorecard.tulos_rivi:
+            kategoria = input("Mihin tulos laitetaan: ").strip().lower()
+            if kategoria in self.pistelista.pisterivi:
                 try:
-                    self.scorecard.record_score(dice_set, category)
+                    self.pistelista.tallenna_tulos(nopat, kategoria)
                     break
                 except ValueError as e:
                     print(e)
             else:
                 print("Ei tuloslistalla, valitse uudestaan.")
         
-        print(f"Tuloslista: {self.scorecard}")
+        print(f"Pistelista: {self.pistelista}")
 
-    def total_score(self):
-        return self.scorecard.total_score()
+    def kokonaispisteet(self):
+        return self.pistelista.kokonaispisteet()
 
     def __repr__(self):
-        return f"{self.nimi}: {self.total_score()} pistettä"
+        return f"{self.nimi}: {self.kokonaispisteet()} pistettä"
     
 class Yatzy:
-    def __init__(self, players):
-        self.players = [Pelaaja(name) for name in players]
+    def __init__(self, pelaajat):
+        self.pelaajat = [Pelaaja(nimi) for nimi in pelaajat]
 
-    def play(self):
-        num_rounds = len(TulosLista.tulos_rivi)  # Adjust number of rounds based on categories
-        for round in range(num_rounds):
-            print(f"\nKierros: {round + 1}")
-            for player in self.players:
-                player.take_turn()
+    def pelaa(self):
+        kierrokset = len(Pistelista.pisterivi)  # Adjust number of rounds based on categories
+        for kierros in range(kierrokset):
+            print(f"\nKierros: {kierros + 1}")
+            for pelaaja in self.pelaajat:
+                pelaaja.ota_vuoro()
         
-        self.display_winner()
+        self.näytä_voittaja()
 
-    def display_winner(self):
-        scores = {player.nimi: player.total_score() for player in self.players}
-        winner = max(scores, key=scores.get)
+    def näytä_voittaja(self):
+        pisteet = {pelaaja.nimi: pelaaja.kokonaispisteet() for pelaaja in self.pelaajat}
+        voittaja = max(pisteet, key=pisteet.get)
         print("\nLopputulokset:")
-        for player in self.players:
-            print(player)
-        print(f"\nVoittaja: {winner}!")
+        for pelaaja in self.pelaajat:
+            print(pelaaja)
+        print(f"\nVoittaja: {voittaja}!")
 
 if __name__ == "__main__":
-    player_names = input("Anna pelaajanimi (pilkulla erotettuina): ").split(',')
-    game = Yatzy([name.strip() for name in player_names])
-    game.play()
+    pelaajien_nimet = input("Anna pelaajanimi (pilkulla erotettuina): ").split(',')
+    peli = Yatzy([nimi.strip() for nimi in pelaajien_nimet])
+    peli.pelaa()
