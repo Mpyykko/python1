@@ -52,14 +52,18 @@ class Pistelista:
         elif rivi == '6':
             return arvot.count(6) * 6
         elif rivi == 'kolmoset':
+            kolmoset = []
             for i in range(1, 7):
                 if arvot.count(i) >= 3:
-                    return sum(arvot)
+                    kolmoset.append(i)
+                    return sum(kolmoset * 3)
             return 0
         elif rivi == 'neloset':
+            neloset = []
             for i in range(1, 7):
                 if arvot.count(i) >= 4:
-                    return sum(arvot)
+                    neloset.append(i)
+                    return sum(neloset * 4)
             return 0
         elif rivi == 'mökki':
             if any(arvot.count(i) == 3 for i in range(1, 7)) and any(arvot.count(i) == 2 for i in range(1, 7)):
@@ -80,12 +84,19 @@ class Pistelista:
                 return 50
             return 0
         elif rivi == '2paria':
-            return sum(arvot) + 10
-        elif rivi == 'pari':
+            parit = []
             for i in range(1, 7):
                 if arvot.count(i) >= 2:
-                    return sum(arvot)
+                    parit.append(i)
+            if len(parit) >= 2:
+                return sum(pari * 2 for pari in parit[:2])
             return 0
+        elif rivi == 'pari':
+            pari = []
+            for i in range(1, 7):
+                if arvot.count(i) >= 2:
+                    pari.append(i)
+            return (max(pari) * 2)
         return 0
 
     def tallenna_tulos(self, nopat, kategoria):
