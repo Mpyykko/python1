@@ -14,27 +14,36 @@ def visa_valikko():
     pisteet = 0
 
     helpot_kysymykset = lataa_kysymykset('kysymykset-helpot.json')
+    vaikeat_kysymykset = lataa_kysymykset('kysymykset-vaikeat.json')
     n = [0, 1, 2, 3]
     m = []
     
     for i in range(5):
-        x = random.randint(1, len(helpot_kysymykset))
+        if i <= 2:
+            kysymykset = helpot_kysymykset
+        elif i == 3:
+            m =[]
+            kysymykset = vaikeat_kysymykset
+        elif i >= 3:
+            kysymykset = vaikeat_kysymykset
+
+        x = random.randint(1, len(kysymykset))
         random.shuffle(n)
         
         while x in m:
-            x = random.randint(1, len(helpot_kysymykset))
+            x = random.randint(1, len(kysymykset))
         m.append(x)
         print()
         
         vastausvaihtoehdot = n.copy()
-        oikea_vastaus_idx = int(helpot_kysymykset[str(x)][-1])
+        oikea_vastaus_idx = int(kysymykset[str(x)][-1])
         
-        print(f'{helpot_kysymykset[str(x)][4]}')
+        print(f'{kysymykset[str(x)][4]}')
         
         while True:
             try:
                 for idx, vaihtoehto in enumerate(vastausvaihtoehdot):
-                    print(f'    ({chr(97 + idx)}) {helpot_kysymykset[str(x)][vaihtoehto]}')
+                    print(f'    ({chr(97 + idx)}) {kysymykset[str(x)][vaihtoehto]}')
                 if oljenkorsi1:
                     print('(1) Oljenkorsi 1: Poista 1 väärä vastaus')
                 if oljenkorsi2:
@@ -56,8 +65,7 @@ def visa_valikko():
                     vaarat_vaihtoehdot = [v for v in vastausvaihtoehdot if v != oikea_vastaus_idx]
                     if vaarat_vaihtoehdot:
                         poistettava = random.choice(vaarat_vaihtoehdot)
-                        #vastausvaihtoehdot.remove(poistettava)
-                        helpot_kysymykset[str(x)][poistettava] = ''
+                        kysymykset[str(x)][poistettava] = ''
                   
             
                 elif valinta == '2' and oljenkorsi2:
@@ -66,8 +74,7 @@ def visa_valikko():
                     if len(vaarat_vaihtoehdot) >= 2:
                         poistettavat = random.sample(vaarat_vaihtoehdot, 2)
                         for poistettava in poistettavat:
-                            #vastausvaihtoehdot.remove(poistettava)
-                            helpot_kysymykset[str(x)][poistettava] = ''
+                            kysymykset[str(x)][poistettava] = ''
                 
                 
                 else:
