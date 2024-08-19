@@ -33,14 +33,14 @@ def pelivalikko():
                 lottoarvonta()
                 break
             elif valinta == 2:
-                pelaajien_nimet = input("Anna pelaajanimi (pilkulla erotettuina): ").split(',')
+                pelaajien_nimet = input("Anna pelaajanimi/-nimet (pilkulla erotettuina): ").split(',')
                 peli = Yatzy([name.strip() for name in pelaajien_nimet])
                 peli.pelaa()
-                print('Tähän yatzy')
+                #print('Tähän yatzy')
                 print()
                 break
             elif valinta == 3:
-                print('Tähän yhteispeli')
+                #print('Tähän yhteispeli')
                 visa_valikko()
                 print()
                 break
