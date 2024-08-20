@@ -17,13 +17,21 @@ def visa_valikko():
     vaikeat_kysymykset = lataa_kysymykset('kysymykset-vaikeat.json')
     n = [0, 1, 2, 3]
     m = []
+
+    def kayta_oljenkorsi(valinta):
+        vaarat_vaihtoehdot = [v for v in vastausvaihtoehdot if v != oikea_vastaus_idx]
+        poistettava = random.sample(vaarat_vaihtoehdot, int(valinta))
+        if valinta == '1':           
+            kysymykset[str(x)][poistettava[0]] = ''                      
+        elif valinta == '2':
+            for p in poistettava:
+                kysymykset[str(x)][p] = ''
     
     for i in range(5):
-        if i <= 2:
+        if i == 3:
+            m = []
+        if i<=2:
             kysymykset = helpot_kysymykset
-        elif i == 3:
-            m =[]
-            kysymykset = vaikeat_kysymykset
         elif i >= 3:
             kysymykset = vaikeat_kysymykset
 
@@ -62,19 +70,11 @@ def visa_valikko():
                 
                 elif valinta == '1' and oljenkorsi1:
                     oljenkorsi1 = False
-                    vaarat_vaihtoehdot = [v for v in vastausvaihtoehdot if v != oikea_vastaus_idx]
-                    if vaarat_vaihtoehdot:
-                        poistettava = random.choice(vaarat_vaihtoehdot)
-                        kysymykset[str(x)][poistettava] = ''
-                  
-            
+                    kayta_oljenkorsi(valinta)
+                    
                 elif valinta == '2' and oljenkorsi2:
                     oljenkorsi2 = False
-                    vaarat_vaihtoehdot = [v for v in vastausvaihtoehdot if v != oikea_vastaus_idx]
-                    if len(vaarat_vaihtoehdot) >= 2:
-                        poistettavat = random.sample(vaarat_vaihtoehdot, 2)
-                        for poistettava in poistettavat:
-                            kysymykset[str(x)][poistettava] = ''
+                    kayta_oljenkorsi(valinta)
                 
                 
                 else:
