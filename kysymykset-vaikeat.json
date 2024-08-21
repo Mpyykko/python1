@@ -1,5 +1,18 @@
 {
     "1": ["Huuto", "Kuiskaus", "Puhe", "Pajatus", "Minkä niminen on Edward Munchin kuuluisa maalaus?", "0"],
     "2": ["Pinocchio", "Dumbo", "Bambi", "Lumikki", "Mikä oli Disney-elokuvista julkaisujärjestyksessään toinen?", "0"],
-    "3": ["Babel Fish", "Translator", "42", "Deep Thought", "Yahoo!-internetpalvelun ensimmäinen kääntäjäpalvelu oli nimeltään?", "0"]
+    "3": ["Babel Fish", "Translator", "42", "Deep Thought", "Yahoo!-internetpalvelun ensimmäinen kääntäjäpalvelu oli nimeltään?", "0"],
+    "4": ["Valashai", "Atlantinsampi", "Meriahven", "Tonnikala", "Maailman suurimman kalalajin titteliä pitää omanaan?", "0"],
+    "5": ["Betonissa", "Vedessä", "Puussa", "Ilmassa", "Missä näistä materiaaleista ääni kulkee nopeiten?", "0"],
+    "6": ["Isabela", "Luciela", "Santa Cruz", "Fernandina", "Galapagossaarten suurin saari on?", "0"],
+    "7": ["Aleksis Kivi", "Eino Leino", "Juhani Aho", "Mika Waltari", "Kuka kirjoitti teoksen 'Seitsemän veljestä'?", "0"],
+    "8": ["Finlandia", "Jean Sibelius", "Suomi", "Maamme", "Mikä on Jean Sibeliuksen tunnetuin sävellys?", "0"],
+    "9": ["Imatra", "Nokia", "Vaasa", "Tampere", "Missä kaupungissa sijaitsee Näsinneula?", "3"],
+    "10": ["Turku", "Helsinki", "Porvoo", "Rauma", "Mikä kaupunki oli Suomen ensimmäinen pääkaupunki?", "0"],
+    "11": ["Husky", "Alaskanmalamuutti", "Suomenpystykorva", "Lapinporokoira", "Mikä koirarotu on Suomen kansallisrotu?", "2"],
+    "12": ["Koivuhalko", "Ruisleipä", "Saunavihta", "Karjalanpiirakka", "Mikä on perinteinen suomalainen leivonnainen?", "3"],
+    "13": ["Yli 60 000", "Yli 100 000", "Yli 120 000", "Yli 150 000", "Kuinka monta järveä Suomessa on (lähes)?", "2"],
+    "14": ["20. kesäkuuta", "22. kesäkuuta", "24. kesäkuuta", "25. kesäkuuta", "Milloin vietetään juhannuspäivää?", "2"],
+    "15": ["Saimaanhylje", "Norppa", "Hylje", "Kuuttaja", "Mikä on maailman ainoa makeanveden hyljelaji, joka elää Suomessa?", "1"],
+    "16": ["1939-1940", "1940-1941", "1941-1942", "1938-1939", "Milloin käytiin Suomen talvisota?", "0"]
 }
