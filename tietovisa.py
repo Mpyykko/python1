@@ -63,7 +63,10 @@ def visa_valikko():
                     if n[['a', 'b', 'c', 'd'].index(valinta)] == oikea_vastaus_idx:
                         pisteet += 1
                     else:
+                        oikea_vastaus_kirjain = chr(97 + n.index(oikea_vastaus_idx))
                         print(f'Väärä vastaus! Saavutit {pisteet} pistettä\n')
+                        print(f'Oikea vastaus olisi ollut ({oikea_vastaus_kirjain}) {kysymykset[str(x)][oikea_vastaus_idx]}')
+
                         print('Peli loppui.')
                         return 
                     break
