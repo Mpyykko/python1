@@ -3,7 +3,17 @@
     "2": ["Tapio Rautavaara", "Reino Helismaa", "Georg Otz", "Kiril Babitzin", "Kuka oli tunnettu laulava keihäänheittäjä?", "0"],
     "3": ["Soisalo", "Heisalo", "Koisalo", "Seisalo", "Mikä suomalainen näyttelijä-ohjaaja Martti on sukuaan?", "0"],
     "4": ["3,14", "3,41", "4,13", "1,34", "Piin likiarvo on?", "0"],
-    "5": ["Simeoni", "Eero", "Aapo", "Lauri", "Kuka oli keskimmäinen iältään Jukolan veljeksistä?", "0"],
+    "5": ["Simeoni", "Eero", "Aapo", "Lauri", "Kuka oli iältään keskimmäinen Jukolan veljeksistä?", "0"],
     "6": ["Kultaa", "Hopeaa", "Tinaa", "Rikkikiisua", "'Aurum' on latinaa ja tarkoittaa suomeksi?", "0"],
-    "7": ["Kamala", "Horror", "Donald", "Fate", "USA:n presidenttiehdokas Harris (2024) on etunimeltään?", "0"]
+    "7": ["Kamala", "Horror", "Donald", "Fate", "USA:n presidenttiehdokas Harris (2024) on etunimeltään?", "0"],
+    "8": ["Luke", "Jake", "Deke", "Make", "Tähtiensota trilogian mukaan viimeinen jedi on etunimeltään?", "0"],
+    "9": ["Sininen", "Vihreä", "Punainen", "Keltainen", "Mikä väri on Suomen lipussa?", "0"],
+    "10": ["Venäjä", "Norja", "Ruotsi", "Tanska", "Mikä maa on Suomen länsinaapuri?", "2"],
+    "11": ["Leijona", "Karhu", "Ilves", "Susi", "Mikä eläin on Suomen vaakunassa?", "0"],
+    "12": ["Kuusi", "Koivu", "Mänty", "Leppä", "Mikä puu on Suomen kansallispuu?", "1"],
+    "13": ["Kuusi", "Viisi", "Neljä", "Kaksi", "Kuinka monta vuodenaikaa Suomessa on?", "2"],
+    "14": ["Kettu", "Jänis", "Orava", "Susi", "Mikä eläin on tunnettu punaisesta turkistaan?", "0"],
+    "15": ["Uusimaa", "Lappi", "Pohjanmaa", "Häme", "Missä maakunnassa sijaitsee Rovaniemi?", "1"],
+    "16": ["Kantele", "Viulu", "Harmonikka", "Piano", "Mikä soitin on Suomen kansallissoitin?", "0"],
+    "17": ["Karhu", "Susi", "Ilves", "Ahma", "Mikä eläin on suurin Suomessa elävä petoeläin?", "0"]
 }
