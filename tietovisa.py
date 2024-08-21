@@ -27,12 +27,12 @@ def visa_valikko():
             for p in poistettava:
                 kysymykset[str(x)][p] = ''
     
-    for i in range(5):
-        if i == 3:
+    for i in range(10):
+        if i == 5:
             m = []
-        if i<=2:
+        if i<=4:
             kysymykset = helpot_kysymykset
-        elif i >= 3:
+        elif i >= 5:
             kysymykset = vaikeat_kysymykset
 
         x = random.randint(1, len(kysymykset))
