@@ -1,5 +1,6 @@
 import json
 import random
+from utils import pelivalikko
 
 
 def lataa_kysymykset(tiedosto):
@@ -7,12 +8,10 @@ def lataa_kysymykset(tiedosto):
         kysymykset = json.load(f)
     return kysymykset
 
-
 def visa_valikko():
     oljenkorsi1 = True
     oljenkorsi2 = True
     pisteet = 0
-
     helpot_kysymykset = lataa_kysymykset('kysymykset-helpot.json')
     vaikeat_kysymykset = lataa_kysymykset('kysymykset-vaikeat.json')
     n = [0, 1, 2, 3]
@@ -46,7 +45,7 @@ def visa_valikko():
         vastausvaihtoehdot = n.copy()
         oikea_vastaus_idx = int(kysymykset[str(x)][-1])
         
-        print(f'{kysymykset[str(x)][4]}')
+        print(f'{kysymykset[str(x)][4]}')                        
         
         while True:
             try:
@@ -62,11 +61,9 @@ def visa_valikko():
                 if valinta in ['a', 'b', 'c', 'd']:
                     if n[['a', 'b', 'c', 'd'].index(valinta)] == oikea_vastaus_idx:
                         pisteet += 1
+                        print(f'Pisteet: {pisteet}')
                     else:
-                        oikea_vastaus_kirjain = chr(97 + n.index(oikea_vastaus_idx))
                         print(f'Väärä vastaus! Saavutit {pisteet} pistettä\n')
-                        print(f'Oikea vastaus olisi ollut ({oikea_vastaus_kirjain}) {kysymykset[str(x)][oikea_vastaus_idx]}')
-
                         print('Peli loppui.')
                         return 
                     break
@@ -74,11 +71,9 @@ def visa_valikko():
                 elif valinta == '1' and oljenkorsi1:
                     oljenkorsi1 = False
                     kayta_oljenkorsi(valinta)
-                    
                 elif valinta == '2' and oljenkorsi2:
                     oljenkorsi2 = False
                     kayta_oljenkorsi(valinta)
-                
                 
                 else:
                     print('Virheellinen valinta tai oljenkorsi on jo käytetty\n')
@@ -88,3 +83,4 @@ def visa_valikko():
 
 if __name__ == '__main__':
     visa_valikko()
+    pelivalikko()
