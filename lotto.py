@@ -70,5 +70,5 @@ def lottoarvonta():
          print()
          print('Ei yhtään osumaa')
     print()
-    time.sleep(1)
+    time.sleep(2)
     pelivalikko()
