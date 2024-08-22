@@ -27,15 +27,15 @@ class Nopat:
     def __repr__(self):
         return ' '.join(map(str, self.nopat))
 
-class Pistelista:
-    pisterivi = [
+class Tuloskortti:
+    tuloskortti = [
         '1', '2', '3', '4', '5', '6',
         'kolmoset', 'neloset', 'mökki', 'pikkusuora', 'isosuora', 
         'sattuma', 'yatzy', 'pari', '2paria' 
     ]
 
     def __init__(self):
-        self.pisteet = {rivi: None for rivi in self.pisterivi}
+        self.pisteet = {rivi: None for rivi in self.tuloskortti}
 
     def laske_pisteet(self, nopat, rivi):
         arvot = nopat.arvot()
@@ -111,8 +111,8 @@ class Pistelista:
     def __repr__(self):
         return str(self.pisteet)
     
-    def näytä_pistelista(self):
-        print("Pistelista:")
+    def näytä_tuloskortti(self):
+        print("Tuloskortti:")
         for kategoria, piste in self.pisteet.items():
             status = piste if piste is not None else "-"
             print(f"{kategoria}: {status}")
@@ -121,11 +121,11 @@ class Pistelista:
 class Pelaaja:
     def __init__(self, nimi):
         self.nimi = nimi
-        self.pistelista = Pistelista()
+        self.tuloskortti = Tuloskortti()
 
-    def ota_vuoro(self):
+    def heittovuoro(self):
         nopat = Nopat()
-        self.pistelista.näytä_pistelista()
+        self.tuloskortti.näytä_tuloskortti()
         print(f"{self.nimi} heittää")
         print(f"Eka heitto: {nopat}")
         
@@ -137,19 +137,19 @@ class Pelaaja:
         
         while True:
             kategoria = input("Mihin tulos laitetaan: ").strip().lower()
-            if kategoria in self.pistelista.pisterivi:
+            if kategoria in self.tuloskortti.tuloskortti:
                 try:
-                    self.pistelista.tallenna_tulos(nopat, kategoria)
+                    self.tuloskortti.tallenna_tulos(nopat, kategoria)
                     break
                 except ValueError as e:
                     print(e)
             else:
                 print("Ei tuloslistalla, valitse uudestaan.")
         
-        print(f"Pistelista: {self.pistelista}")
+        #print(f"Tuloskortti: {self.tuloskortti}")
 
     def kokonaispisteet(self):
-        return self.pistelista.kokonaispisteet()
+        return self.tuloskortti.kokonaispisteet()
 
     def __repr__(self):
         return f"{self.nimi}: {self.kokonaispisteet()} pistettä"
@@ -159,11 +159,11 @@ class Yatzy:
         self.pelaajat = [Pelaaja(nimi) for nimi in pelaajat]
 
     def pelaa(self):
-        kierrokset = len(Pistelista.pisterivi)  # Adjust number of rounds based on categories
+        kierrokset = len(Tuloskortti.tuloskortti)
         for kierros in range(kierrokset):
             print(f"\nKierros: {kierros + 1}")
             for pelaaja in self.pelaajat:
-                pelaaja.ota_vuoro()
+                pelaaja.heittovuoro()
         
         self.näytä_voittaja()
 
@@ -176,6 +176,6 @@ class Yatzy:
         print(f"\nVoittaja: {voittaja}!")
 
 if __name__ == "__main__":
-    pelaajien_nimet = input("Anna pelaajanimi (pilkulla erotettuina): ").split(',')
+    pelaajien_nimet = input("Anna pelaajanimi/-nimet (pilkulla erotettuina): ").split(',')
     peli = Yatzy([nimi.strip() for nimi in pelaajien_nimet])
     peli.pelaa()
