@@ -1,6 +1,9 @@
 import json
 import random
 from utils import pelivalikko
+
+import time
+
 def lataa_kysymykset(tiedosto):
     with open(tiedosto, 'r', encoding='utf-8') as f:
         kysymykset = json.load(f)
@@ -39,6 +42,8 @@ def visa_valikko():
         
         vastausvaihtoehdot = n.copy()
         oikea_vastaus_idx = int(kysymykset[str(x)][-1])
+
+        time.sleep(1)
         
         print(f'{kysymykset[str(x)][4]}')                        
         
@@ -53,17 +58,23 @@ def visa_valikko():
                 
                 valinta = input('Vastauksesi: ').strip().lower()
                 
+                
                 if valinta in ['a', 'b', 'c', 'd']:
+                    
                     if n[['a', 'b', 'c', 'd'].index(valinta)] == oikea_vastaus_idx:
                         pisteet += 1
                         print()
-                        if pisteet == 10:
-                            print('You made it, Pal!')
+                        print('\033[1;32mOikein!\033[0m')
                         print(f'Pisteet: {pisteet}')
+                        if pisteet == 10:
+                            print('\033[1;34mYou made it, Pal!\033[0m')
+                            time.sleep(2)
+                        
 
                     else:
-                        print(f'Väärä vastaus! Saavutit {pisteet} pistettä\n')
+                        print(f'\033[1;31mVäärä vastaus!\033[0m Saavutit {pisteet} pistettä\n')
                         print('Peli loppui.')
+                        time.sleep(2)
                         return 
                     break
                 
@@ -79,6 +90,10 @@ def visa_valikko():
             
             except ValueError:
                 print('Virheellinen valinta\n')
+
+            
+            
+
 
 
 pelivalikko()
