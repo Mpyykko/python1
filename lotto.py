@@ -65,8 +65,10 @@ def lottoarvonta():
     elif osumat >0:
          print()
          print (f'Sait {osumat} oikein! Osuneet numerot: {'  '.join(str(i) for i in osuneet)}')
+        
     else:
          print()
          print('Ei yhtään osumaa')
     print()
+    time.sleep(1)
     pelivalikko()
