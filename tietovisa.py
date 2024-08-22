@@ -61,7 +61,11 @@ def visa_valikko():
                 if valinta in ['a', 'b', 'c', 'd']:
                     if n[['a', 'b', 'c', 'd'].index(valinta)] == oikea_vastaus_idx:
                         pisteet += 1
+                        print()
+                        if pisteet == 10:
+                            print('You made it, Pal!')
                         print(f'Pisteet: {pisteet}')
+
                     else:
                         print(f'Väärä vastaus! Saavutit {pisteet} pistettä\n')
                         print('Peli loppui.')
@@ -81,6 +85,7 @@ def visa_valikko():
             except ValueError:
                 print('Virheellinen valinta\n')
 
+
+pelivalikko()
 if __name__ == '__main__':
     visa_valikko()
-    pelivalikko()
