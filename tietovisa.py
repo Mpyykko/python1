@@ -1,14 +1,10 @@
 import json
 import random
-import time
-
-
-
+from utils import pelivalikko
 def lataa_kysymykset(tiedosto):
     with open(tiedosto, 'r', encoding='utf-8') as f:
         kysymykset = json.load(f)
     return kysymykset
-
 def visa_valikko():
     oljenkorsi1 = True
     oljenkorsi2 = True
@@ -17,7 +13,6 @@ def visa_valikko():
     vaikeat_kysymykset = lataa_kysymykset('kysymykset-vaikeat.json')
     n = [0, 1, 2, 3]
     m = []
-
     def kayta_oljenkorsi(valinta):
         vaarat_vaihtoehdot = [v for v in vastausvaihtoehdot if v != oikea_vastaus_idx]
         poistettava = random.sample(vaarat_vaihtoehdot, int(valinta))
@@ -34,7 +29,6 @@ def visa_valikko():
             kysymykset = helpot_kysymykset
         elif i >= 5:
             kysymykset = vaikeat_kysymykset
-
         x = random.randint(1, len(kysymykset))
         random.shuffle(n)
         
@@ -70,8 +64,8 @@ def visa_valikko():
                     else:
                         print(f'Väärä vastaus! Saavutit {pisteet} pistettä\n')
                         print('Peli loppui.')
-                        break
-
+                        return 
+                    break
                 
                 elif valinta == '1' and oljenkorsi1:
                     oljenkorsi1 = False
@@ -87,6 +81,6 @@ def visa_valikko():
                 print('Virheellinen valinta\n')
 
 
-if __name__ == "__main__":
+pelivalikko()
+if __name__ == '__main__':
     visa_valikko()
-
