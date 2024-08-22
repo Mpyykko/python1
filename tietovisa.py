@@ -1,6 +1,7 @@
 import json
 import random
-from utils import pelivalikko
+import time
+
 
 
 def lataa_kysymykset(tiedosto):
@@ -65,8 +66,8 @@ def visa_valikko():
                     else:
                         print(f'Väärä vastaus! Saavutit {pisteet} pistettä\n')
                         print('Peli loppui.')
-                        return 
-                    break
+                        break
+
                 
                 elif valinta == '1' and oljenkorsi1:
                     oljenkorsi1 = False
@@ -81,6 +82,7 @@ def visa_valikko():
             except ValueError:
                 print('Virheellinen valinta\n')
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     visa_valikko()
-    pelivalikko()
+
