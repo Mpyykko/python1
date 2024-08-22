@@ -11,7 +11,7 @@
     "10": ["Turku", "Helsinki", "Porvoo", "Rauma", "Mikä kaupunki oli Suomen ensimmäinen pääkaupunki?", "0"],
     "11": ["Husky", "Alaskanmalamuutti", "Suomenpystykorva", "Lapinporokoira", "Mikä koirarotu on Suomen kansallisrotu?", "2"],
     "12": ["Koivuhalko", "Ruisleipä", "Saunavihta", "Karjalanpiirakka", "Mikä on perinteinen suomalainen leivonnainen?", "3"],
-    "13": ["Yli 60 000", "Yli 100 000", "Yli 120 000", "Yli 150 000", "Kuinka monta järveä Suomessa on (lähes)?", "2"],
+    "13": ["60 000", "100 000", "120 000", "150 000", "Kuinka monta järveä Suomessa on (noin)?", "2"],
     "15": ["Saimaanhylje", "Norppa", "Hylje", "Kuuttaja", "Mikä on maailman ainoa makeanveden hyljelaji, joka elää Suomessa?", "1"],
     "16": ["1939-1940", "1940-1941", "1941-1942", "1938-1939", "Milloin käytiin Suomen talvisota?", "0"]
 }
