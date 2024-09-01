@@ -1,4 +1,5 @@
 import random
+from utils import pelivalikko
 
 class Noppa:
     def __init__(self):
@@ -174,6 +175,7 @@ class Yatzy:
         for pelaaja in self.pelaajat:
             print(pelaaja)
         print(f"\nVoittaja: {voittaja}!")
+        pelivalikko()
 
 if __name__ == "__main__":
     pelaajien_nimet = input("Anna pelaajanimi/-nimet (pilkulla erotettuina): ").split(',')

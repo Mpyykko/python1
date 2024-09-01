@@ -69,13 +69,13 @@ def visa_valikko():
                         if pisteet == 10:
                             print('\033[1;34mYou made it, Pal!\033[0m')
                             time.sleep(2)
-                        
+                            pelivalikko()
 
                     else:
                         print(f'\033[1;31mVäärä vastaus!\033[0m Saavutit {pisteet} pistettä\n')
                         print('Peli loppui.')
                         time.sleep(2)
-                        return 
+                        pelivalikko()
                     break
                 
                 elif valinta == '1' and oljenkorsi1:
@@ -96,6 +96,6 @@ def visa_valikko():
 
 
 
-pelivalikko()
+
 if __name__ == '__main__':
     visa_valikko()
